@@ -6,20 +6,11 @@ public class User extends Pengguna {
         this.adminID = 0;
     }
 
-    void menambahkanBuku(String[] rakBuku, String bukuBaru) {
-        rakBuku[rakBuku.length] = bukuBaru;
+    void menambahkanBuku(Buku[] rakBuku, Buku bukuBaru) {
+       System.out.println("Anda tidak memiliki akses untuk menambahkan buku. (Hanya admin)");
     }
 
-    void menghapusBuku(String[] rakBuku, String bukuYangDihapus) {
-        String[] rakSementara = new String[rakBuku.length - 1];
-        int newIndex = 0;
-
-        for (int i = 0; i < rakBuku.length; i++) {
-            if (!rakBuku[i].equals(bukuYangDihapus)) {
-                rakSementara[newIndex] = rakBuku[i];
-                newIndex++;
-            }
-        }
-        rakBuku = rakSementara;
+    void menghapusBuku(Buku[] rakBuku, String bukuYangDihapus) {
+       System.out.println("Anda tidak memiliki akses untuk menghapus buku. (Hanya admin)");
     }
 }
