@@ -2,6 +2,10 @@ public abstract class Pengguna {
     public String tipePengguna;
     public int adminID;
 
+    abstract void menambahkanBuku(Buku[] rakBuku, Buku bukuBaru);
+
+    abstract void menghapusBuku(Buku[] rakBuku, String bukuYangDihapus);
+
     public void melihatBuku(Buku[] rakBuku, String buku) {
         for (int i = 0; i < rakBuku.length; i++) {
             if (rakBuku[i].judulBuku.toLowerCase().contains(buku.toLowerCase())) {
@@ -28,7 +32,7 @@ public abstract class Pengguna {
         if (genreDitampilkan == null) {
             System.out.println("Daftar buku yang tersedia");
             for (int i = 0; i < rakBuku.length; i++) {
-                System.out.println((i + 1) + ". " + rakBuku[i].judulBuku);
+                System.out.println((i + 1) + ". " + rakBuku[i].judulBuku + " (Genre: " + rakBuku[i].genreBuku + ").");
 
                 if (rakBuku[i + 1] == null)
                     return;
@@ -59,8 +63,4 @@ public abstract class Pengguna {
         }
 
     }
-
-    abstract void menambahkanBuku(Buku[] rakBuku, Buku bukuBaru);
-
-    abstract void menghapusBuku(Buku[] rakBuku, String bukuYangDihapus);
 }

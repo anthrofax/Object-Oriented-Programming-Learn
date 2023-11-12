@@ -1,20 +1,20 @@
 import java.util.Scanner;
 
-import javax.swing.plaf.synth.SynthEditorPaneUI;
-
-class SistemUtama {
+class SistemPerpustakaan {
     static public void main(String[] args) {
-        Scanner masukkan = new Scanner(System.in);
+        Scanner inputPengguna = new Scanner(System.in);
         boolean ulangProgram = true;
+        
         Pengguna pengguna;
-        Buku[] daftarBuku = new Buku[100];
+
+        Buku[] daftarBuku = new Buku[500];
         daftarBuku[0] = new Buku("Filosofi Teras", 2004, "Henry Manampiring", 204, "Self improvement");
 
         System.out.println("Login sebagai ");
         System.out.println("1. User");
         System.out.println("2. Admin");
         System.out.print("Pilih: ");
-        int loginSebagai = masukkan.nextInt();
+        int loginSebagai = inputPengguna.nextInt();
 
         bersihkanTerminal();
 
@@ -24,12 +24,12 @@ class SistemUtama {
             pengguna = new Admin("Admin", 2210);
         } else {
             pengguna = new User("Pengguna");
-            System.out.print("Input yang anda masukkan salah.");
+            System.out.print("Input yang anda inputPengguna salah.");
         }
 
         do {
             tampilMenu();
-            int pilMenu = masukkan.nextInt();
+            int pilMenu = inputPengguna.nextInt();
 
             switch (pilMenu) {
                 case 1:
@@ -80,18 +80,18 @@ class SistemUtama {
         System.out.println("3. Menambahkan buku");
         System.out.println("4. Menghapus buku.");
         System.out.println("5. Keluar");
-        System.out.print("Masukkan pilihan: ");
+        System.out.print("inputPengguna pilihan: ");
     }
 
     static protected void menuMelihatDaftarBuku(Pengguna pengguna, Buku[] daftarBuku) {
         int pilMenu;
-        Scanner masukkan = new Scanner(System.in);
+        Scanner inputPengguna = new Scanner(System.in);
 
         System.out.println("Pilih Menu");
         System.out.println("1. Semua buku");
         System.out.println("2. Buku berdasarkan genre");
-        System.out.print("Masukkan pilihan: ");
-        pilMenu = masukkan.nextInt();
+        System.out.print("inputPengguna pilihan: ");
+        pilMenu = inputPengguna.nextInt();
 
         switch (pilMenu) {
             case 1:
@@ -102,8 +102,8 @@ class SistemUtama {
                 bersihkanTerminal();
                 String pilGenre;
                 System.out.print("Inputkan genre buku yang ingin anda lihat: ");
-                masukkan.nextLine();
-                pilGenre = masukkan.nextLine();
+                inputPengguna.nextLine();
+                pilGenre = inputPengguna.nextLine();
 
                 pengguna.melihatDaftarBuku(daftarBuku, pilGenre);
                 break;
@@ -111,36 +111,36 @@ class SistemUtama {
                 break;
         }
 
-        if (pilMenu == 1) masukkan.nextLine();
-        masukkan.nextLine();
+        if (pilMenu == 1) inputPengguna.nextLine();
+        inputPengguna.nextLine();
     }
 
     static protected void menuMencariBuku(Pengguna pengguna, Buku[] daftarBuku) {
-        Scanner masukkan = new Scanner(System.in);
+        Scanner inputPengguna = new Scanner(System.in);
         System.out.print("Inputkan judul buku yang ingin anda cari: ");
-        String bukuDicari = masukkan.nextLine();
+        String bukuDicari = inputPengguna.nextLine();
 
         pengguna.melihatBuku(daftarBuku, bukuDicari);
-        masukkan.nextLine();
+        inputPengguna.nextLine();
     }
 
     static protected void menuMenambahkanBuku(Pengguna pengguna, Buku[] daftarBuku) {
-        Scanner masukkan = new Scanner(System.in);
+        Scanner inputPengguna = new Scanner(System.in);
 
         if (apakahAdmin(pengguna)) {
-            System.out.println("Masukkan data yang diperlukan");
+            System.out.println("inputPengguna data yang diperlukan");
             System.out.print("Judul buku: ");
-            String judulBuku = masukkan.nextLine();
+            String judulBuku = inputPengguna.nextLine();
             System.out.print("Tahun terbit: ");
-            int tahunTerbit = masukkan.nextInt();
+            int tahunTerbit = inputPengguna.nextInt();
             System.out.print("Penulis: ");
-            masukkan.nextLine();
-            String penulis = masukkan.nextLine();
+            inputPengguna.nextLine();
+            String penulis = inputPengguna.nextLine();
             System.out.print("Halaman buku: ");
-            int halamanBuku = masukkan.nextInt();
+            int halamanBuku = inputPengguna.nextInt();
             System.out.print("Genre Buku: ");
-            masukkan.nextLine();
-            String genreBuku = masukkan.nextLine();
+            inputPengguna.nextLine();
+            String genreBuku = inputPengguna.nextLine();
 
             pengguna.menambahkanBuku(daftarBuku,
                     new Buku(judulBuku, tahunTerbit, penulis, halamanBuku, genreBuku));
@@ -150,21 +150,21 @@ class SistemUtama {
             pengguna.menambahkanBuku(null, null);
         }
 
-        masukkan.nextLine();
+        inputPengguna.nextLine();
     }
 
     static protected void menuMenghapusBuku(Pengguna pengguna, Buku[] daftarBuku) {
-        Scanner masukkan = new Scanner(System.in);
+        Scanner inputPengguna = new Scanner(System.in);
 
         if (apakahAdmin(pengguna)) {
             System.out.print("Inputkan judul buku yang ingin dihapus : ");
-            String judulBuku = masukkan.nextLine();
+            String judulBuku = inputPengguna.nextLine();
 
             pengguna.menghapusBuku(daftarBuku, judulBuku);
         } else {
             pengguna.menghapusBuku(null, null);
         }
 
-        masukkan.nextLine();
+        inputPengguna.nextLine();
     }
 }

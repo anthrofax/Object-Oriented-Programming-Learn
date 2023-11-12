@@ -43,9 +43,7 @@ public class Admin extends Pengguna {
         // Jika buku yang akan dihapus ditemukan
         if (indeksDihapus != -1) {
             // Menggeser elemen-elemen setelah indeksDihapus ke kiri
-            for (int i = indeksDihapus; i < rakBuku.length - 1; i++) {
-                rakBuku[i] = rakBuku[i + 1];
-            }
+            for (int i = indeksDihapus; i < rakBuku.length - 1; i++) rakBuku[i] = rakBuku[i + 1];
 
             // Mengurangi panjang array rakBuku
             rakBuku[rakBuku.length - 1] = null;
