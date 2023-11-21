@@ -4,7 +4,8 @@ public class Perulangan1 {
         // a. Menghitung Deret bilangan prima dan bukan dari 0 – 20
         boolean bukanPrima = false;
         System.out.println("a. Deret bilangan prima dan bukan dari 0 – 20:");
-        for (int i = 0; i <= 20; i++) {
+        int i = 0;
+        do {
             if (i == 0 || i == 1) {
                 System.out.println(i + " bukan bilangan prima");
             } else {
@@ -22,15 +23,18 @@ public class Perulangan1 {
                 } else
                     System.out.println(i + " adalah bilangan prima");
             }
-        }
+            i++;
+        } while (i <= 20);
 
         // b. Menghitung Deret bilangan ganjil dan genap dari 0 – 20
         System.out.println("\nb. Deret bilangan ganjil dan genap dari 0 – 20:");
-        for (int i = 0; i <= 20; i++) {
-            if (i % 2 == 0) {
-                System.out.println(i + " adalah bilangan genap");
+        int angka[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+
+        for (int num : angka) {
+            if (num % 2 == 0) {
+                System.out.println(num + " adalah bjlangan genap");
             } else {
-                System.out.println(i + " adalah bilangan ganjil");
+                System.out.println(num + " adalah bilangan ganjil");
             }
         }
 
@@ -44,9 +48,28 @@ public class Perulangan1 {
 
         // d. Lagu “Anak Ayam Turun N”
         System.out.println("\n\nd. Lagu “Anak Ayam Turun N”:");
-        int n = 10; // Ganti dengan jumlah anak ayam yang diinginkan
-        for (int i = n; i >= 1; i--) {
-            System.out.println("Anak ayam turun " + i);
+
+        int n = 5;
+        for (int k = n; k > 0; k--) {
+            System.out.println("TEK KOTEK..KOTEK KOTEK");
+            System.out.println("ANAK AYAM TURUN BERKOTEK");
+            System.out.println("TEK KOTEK..KOTEK KOTEK");
+            System.out.println("ANAK AYAM TURUN BERKOTEK\n");
+
+            System.out.println("ANAK AYAM TURUNLAH " + k);
+
+            if (k > 2) {
+                System.out.println("MATI SATU TINGGALAH " + (k - 1) + ",");
+                System.out.println("ANAK AYAM TURUNLAH " + (k - 1));
+                System.out.println("MATI SATU TINGGALAH " + (k - 2));
+            } else if (k == 2) {
+                System.out.println("MATI SATU TINGGALAH " + (k - 1) + ",");
+                System.out.println("ANAK AYAM TURUNLAH " + (k - 1));
+                System.out.println("MATI SATU TINGGAL INDUKNYA");
+                break;
+            }
+
+            System.out.println();
         }
     }
 }
